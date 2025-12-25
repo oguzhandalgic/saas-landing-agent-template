@@ -49,24 +49,50 @@ saas-landing-antigravity-template/
 └── requirements.txt             # Only needed if running Python scripts outside Antigravity
 ```
 
-## 🚀 Quick Start in Google Antigravity
+### 🚀 Quick Start in Google Antigravity
 
-1. Install Antigravity
-Download from https://antigravity.google/download (Windows/macOS/Linux)
-2. Create new project
-Open Antigravity → File → New Project → Choose folder or clone this repo
-3. Set primary model
-Settings → Models → Select Claude 4.5 Opus (add your Anthropic API key)
-4. Install MCP servers
-Use the marketplace (one-click) or manual config for: context retrieval, task queue, browser control, vision
-5. Fill docs/ folder
-Most important: create docs/01-product.md with product name, one-liner, benefits, audience, pricing
-6. Start generating
-Open Agent Manager → dispatch agents in order: Strategist → Copywriter → Structure → Design → Codegen → SEO → Browser → Reviewer
-7. Review Artifacts
-Check screenshots, browser recordings, generated copy & code in Artifacts tab
-8. Version & deploy
-Use built-in git or git_agent → commit → PR → merge → manual deploy to Vercel/Netlify
+1. **Install Antigravity**  
+   Download and install from [https://antigravity.google/download](https://antigravity.google/download)  
+   (supports Windows, macOS, Linux)
+
+2. **Create a new project**  
+   Open Antigravity → **File** → **New Project**  
+   Choose an empty folder or clone this repository directly into it
+
+3. **Set Claude 4.5 Opus as primary model**  
+   Go to **Settings** → **Models**  
+   Select **Claude 4.5 Opus** and add your Anthropic API key
+
+4. **Install recommended MCP servers**  
+   Use the built-in marketplace (one-click install) or manual config for:  
+   - Context retrieval (e.g. Context7 or Mem0)  
+   - Task queue / manager  
+   - Browser automation & control  
+   - Vision / screenshot analysis (highly recommended for landing page review)
+
+5. **Prepare your project docs (most important step!)**  
+   Fill the `docs/` folder with key information:  
+   - Create `docs/01-product.md`: product name, one-liner, core benefits, pricing  
+   - Add `docs/02-audience.md`: target customer profile, pains, desires  
+   - Include `docs/03-competitors.md`: 3–5 reference URLs + what you like/hate
+
+6. **Start generating with Agent Manager**  
+   Open **Agent Manager** view  
+   Dispatch agents in this recommended order:  
+   **Strategist** → **Copywriter** → **Structure** → **Design** → **Codegen** → **SEO** → **Browser** → **Reviewer**
+
+7. **Review Artifacts**  
+   Check the **Artifacts** tab for:  
+   - Generated copy blocks  
+   - Screenshots & browser recordings  
+   - Code files & plans  
+   → This is where you validate visual & conversion quality
+
+8. **Version control & deploy**  
+   Use Antigravity's built-in git tools or your `git_agent`:  
+   → Commit changes → Create PR → Review → Merge  
+   → Manually trigger preview deploy to Vercel / Netlify / Cloudflare Pages
+
 ## 🔥 Key Agents & Their Focus
 
 | Agent | Primary Focus | Recommended MCPs |
