@@ -1,116 +1,100 @@
-# SaaS Landing Agent Template
-**AI-First Autonomous SaaS Landing Page Generation & Iteration Workflow**
+# SaaS Landing Antigravity Template
+**AI-First Autonomous SaaS Landing Page Generation & Iteration on Google Antigravity**
 
-![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
-![Tailwind](https://img.shields.io/badge/Tailwind-3.4-38bdf8?logo=tailwindcss)
+![Antigravity](https://img.shields.io/badge/Google-Antigravity-4285F4?logo=google)
 ![Claude 4.5 Opus](https://img.shields.io/badge/Claude-4.5%20Opus-9F70D1?logo=anthropic)
-![CrewAI](https://img.shields.io/badge/CrewAI-0.67+-FF6B6B?logo=python)
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![License](https://img.shields.io/badge/License-MIT-blue.svg)
 
-Template for fully/semi-autonomous generation, iteration and continuous improvement of high-converting SaaS landing pages 
-using **Claude 4.5 Opus** + **CrewAI** multi-agent system.
+Template optimized for **Google Antigravity** (public preview, Dec 2025) to build high-converting SaaS landing pages 
+using Claude 4.5 Opus + multi-agent system + MCP integrations.
 
-Agents handle strategy → messaging → copy → structure → design → code → SEO → Git workflow.
+Leverage Agent Manager, Artifacts, browser control, git integration, and one-click MCP servers.
 
 ## ✨ Core Features
 
-- End-to-end AI pipeline: strategy → copy → structure → design → code → SEO
-- Strict Git workflow (feature branches → documented PRs → auto-review → merge)
-- Multiple output formats supported: Next.js + Tailwind, Astro, plain HTML+CSS+JS
-- One-command preview deployment (Vercel / Netlify / Cloudflare Pages)
-- Brand voice, target audience, competitors & pricing injected via docs/
-- Reusable high-quality prompt templates (hero, features, pricing, testimonials, CTA)
-- Visual feedback loop via screenshot analysis (optional future extension)
+- Agent-first workflow inside Google Antigravity (no heavy Python orchestration needed)
+- Native Claude 4.5 Opus support + full Anthropic API integration
+- Artifacts: screenshots, browser recordings, plans — perfect for landing page review
+- One-click MCP marketplace (context retrieval, task queue, browser control, vision)
+- Built-in git support + optional git_agent for branch/PR/merge flow
+- Persistent local project folder — no session timeouts
+- Parallel agent execution via Agent Manager (strategist, copywriter, design, codegen, seo, etc.)
 
-## 📁 Project Structure
+## 📁 Recommended Project Structure
 
 ```text
-saas-landing-agent-template/
-├── docs/                       # Product description, audience, competitors, tone, references
-├── agents/                     # All specialized landing page agents
-│   ├── base_agent.py
-│   ├── strategist_agent.py     # Positioning, audience, messaging, funnel
-│   ├── copywriter_agent.py     # Headlines, benefits, social proof, objections
-│   ├── structure_agent.py      # Optimal section order & hierarchy
-│   ├── design_agent.py         # Colors, typography, spacing, animations
-│   ├── codegen_agent.py        # Generates HTML/CSS/JS or React/Next.js code
-│   ├── seo_agent.py            # Meta, schema, alt texts, keywords
-│   └── git_agent.py            # Branch → commit → PR → review → merge
-├── prompts/                    # High-quality reusable prompt templates
-│   ├── hero.prompt
-│   ├── features.prompt
-│   ├── pricing.prompt
-│   ├── testimonials.prompt
-│   └── cta.prompt
-├── src/                        # Generated landing page source code
-│   ├── app/                    # Next.js app router (or pages/)
-│   ├── components/
+saas-landing-antigravity-template/
+├── docs/                        # Product brief, audience, competitors, tone, visual refs
+│   ├── 01-product.md
+│   ├── 02-audience.md
+│   ├── 03-competitors.md
+│   └── 04-visual-references.md
+├── prompts/                     # Reusable prompt templates (used by agents)
+│   ├── hero.txt
+│   ├── features.txt
+│   ├── pricing.txt
+│   ├── testimonials.txt
+│   ├── cta.txt
+│   └── seo-meta.txt
+├── src/                         # Generated landing page code (any stack)
+│   ├── index.html               # or app/page.tsx, Astro pages, etc.
 │   ├── styles/
+│   ├── components/
 │   └── public/
-├── status.json                 # Current phase, generation status, last preview url
-├── status.lock
-├── crew.py                     # Main orchestrator - runs the full pipeline
-├── requirements.txt
-├── tailwind.config.js          # (if using Tailwind)
-├── next.config.js              # (if using Next.js)
-├── vercel.json                 # Deployment configuration
-└── README.md
+├── .antigravity/                # Antigravity-specific config (optional but recommended)
+│   ├── agents.json              # Pre-configured agent profiles
+│   └── mcps.json                # Preferred MCP servers
+├── README.md
+├── .gitignore
+└── requirements.txt             # Only needed if running Python scripts outside Antigravity
 ```
 
-## 🚀 Quick Start
+## 🚀 Quick Start in Google Antigravity
 
-1. Create new repo from this template
-2. Install dependencies
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-3. Set secrets
-```bash
-export ANTHROPIC_API_KEY=sk-ant-...
-export GITHUB_TOKEN=ghp_...
-```
-4. Describe your SaaS product
-- Create docs/01-product.md (most important step!)
-- Include: product name, one-liner, target audience, main benefits, pricing, competitors
-5. Initialize status
-```bash
-echo '{"phase":"ideation", "status":"ready", "preview_url":""}' > status.json
-```
-6. Generate your landing page
-```bash
-python crew.py
-```
-→ → Agents create strategy → copy → structure → design → code → PR → review → merge → preview deploy
+1. Install Antigravity
+Download from https://antigravity.google/download (Windows/macOS/Linux)
+2. Create new project
+Open Antigravity → File → New Project → Choose folder or clone this repo
+3. Set primary model
+Settings → Models → Select Claude 4.5 Opus (add your Anthropic API key)
+4. Install MCP servers
+Use the marketplace (one-click) or manual config for: context retrieval, task queue, browser control, vision
+5. Fill docs/ folder
+Most important: create docs/01-product.md with product name, one-liner, benefits, audience, pricing
+6. Start generating
+Open Agent Manager → dispatch agents in order: Strategist → Copywriter → Structure → Design → Codegen → SEO → Browser → Reviewer
+7. Review Artifacts
+Check screenshots, browser recordings, generated copy & code in Artifacts tab
+8. Version & deploy
+Use built-in git or git_agent → commit → PR → merge → manual deploy to Vercel/Netlify
+## 🔥 Key Agents & Their Focus
 
-## 🔥 Most Important Agents & Their Focus
+| Agent | Primary Focus | Recommended MCPs |
+| --- | --- | --- |
+| Strategist | Audience, positioning, messaging, funnel | Context retrieval |
+| Copywriter | High-conversion headlines, benefits, social proof | None required |
+| Structure | Optimal section order & hierarchy | Context retrieval |
+| Design | Colors, typography, spacing, animations | Vision / Design MCP |
+| Codegen | HTML/Tailwind/Next.js/Astro code generation | None required |
+| SEO | Meta tags, schema.org, alt texts, keywords | Context retrieval |
+| Browser | Open preview, take screenshots, record interaction | Browser control MCP |
+| Reviewer | Critique conversion, design, copy & suggest fixes | Vision + Context |
 
-| Agent              | Primary Focus                                                                 |
-|--------------------|-------------------------------------------------------------------------------|
-| strategist        | Audience understanding, positioning, core message, conversion funnel          |
-| copywriter        | High-conversion copy: headlines, subheads, benefits, social proof, objections |
-| structure         | Optimal section order, visual hierarchy, above-the-fold impact                |
-| design            | Color palette, typography, spacing system, micro-animations, mobile-first     |
-| codegen           | Clean, modern code (Next.js/Tailwind, Astro, or plain HTML+CSS+JS)            |
-| seo               | Technical SEO, meta tags, schema.org, image alts, keyword optimization        |
-| git               | Enforces branch → commit → documented PR → auto-review → merge                |
+## Recommended MCP Servers (install via Antigravity marketplace)
 
-## 📌 Recommended Prompt Quality Tips
+- Context retrieval (Context7, Mem0, or vector store)
+- Task queue / manager
+- Browser automation & control
+- Vision / screenshot analysis
+- Optional: Tailwind Design MCP, screenshot-to-code
 
-• Use very specific audience descriptions (age, job title, pain points, tech stack)
-• Provide 3–5 strong competitor examples with URLs
-• Define tone of voice explicitly (confident/playful/professional/friendly/...)
-• Include pricing model early (helps structure agent decide pricing section)
-• Add visual references (dribbble shots, existing landing pages)
+## Pro Tips for Antigravity (Dec 2025)
 
-## 🚀 Recommended Free Deployment Targets
-
-| Platform          | Best For                          | Free Tier Notes                     |
-|-------------------|-----------------------------------|-------------------------------------|
-| Vercel            | Next.js / React                   | Excellent preview deploys           |
-| Netlify           | Astro / static + forms            | Great developer experience          |
-| Cloudflare Pages  | Speed + global CDN                | Unlimited bandwidth                 |
+• Start small: generate only hero section first
+• Use Artifacts heavily — screenshots & recordings are gold
+• Keep browser control permissions minimal (security)
+• Save good agent configurations as templates in .antigravity/agents.json
+• For production deploys: use git + Vercel/Netlify webhook after merge
 
 ## License
 
@@ -118,4 +102,4 @@ MIT © 2025 [Your Name / Organization]
 
 ## Happy Building!
 
-Let the agents create your next high-converting landing page! 🚀
+Let the agents create your next high-converting landing page on Antigravity! 🚀
