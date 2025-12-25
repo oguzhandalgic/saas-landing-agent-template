@@ -1,0 +1,4 @@
+# Only needed if you run Python scripts outside Antigravity
+crewai>=0.67.0
+anthropic>=0.40.0
+python-dotenv>=1.0.0

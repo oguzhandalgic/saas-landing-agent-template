@@ -1,0 +1,102 @@
+{
+  "version": "1.0",
+  "project": "SaaS Landing Page Generator",
+  "description": "Multi-agent pipeline for high-converting SaaS landing pages using Claude 4.5 Opus",
+  "default_model": "claude-4.5-opus-20251224",
+  "agents": [
+    {
+      "id": "strategist",
+      "name": "Strategist Agent",
+      "description": "Defines positioning, core message, funnel and overall strategy",
+      "system_prompt": "You are an elite SaaS positioning strategist who helped 20+ companies reach $10M+ ARR. Focus on audience, UVP, pains, desires, and conversion funnel. Be specific, benefit-oriented, professional. Never use vague language.",
+      "mcp_servers": ["context7-retrieval", "mem0-memory"],
+      "priority": 1,
+      "output_format": "POSITIONING STATEMENT + CORE MESSAGE BULLETS + FUNNEL STAGES"
+    },
+    {
+      "id": "copywriter",
+      "name": "Copywriter Agent",
+      "description": "Writes high-conversion copy: headlines, benefits, social proof, CTAs",
+      "system_prompt": "You are a world-class SaaS copywriter behind $50M+ ARR landing pages. Benefit-first, confident but credible, short punchy sentences, direct 'you/your' language. No hype, no buzzwords.",
+      "mcp_servers": ["context7-retrieval"],
+      "depends_on": ["strategist"],
+      "priority": 2,
+      "output_format": "HEADLINE + SUBHEADLINE + BODY + BULLETS + CTA"
+    },
+    {
+      "id": "structure",
+      "name": "Structure Agent",
+      "description": "Decides optimal section order, visual hierarchy, above-the-fold impact",
+      "system_prompt": "You are a top-tier SaaS landing page strategist. Follow proven patterns: hero → problem → solution → proof → offer → CTA. Prioritize fast hook, social proof early, pricing late.",
+      "mcp_servers": ["context7-retrieval"],
+      "depends_on": ["copywriter"],
+      "priority": 3,
+      "output_format": "RECOMMENDED SECTION ORDER + REASONS + ALTERNATIVE ORDER"
+    },
+    {
+      "id": "design",
+      "name": "Design Agent",
+      "description": "Suggests color palette, typography, spacing, animations, visual system",
+      "system_prompt": "You are a senior product designer for $100M+ ARR SaaS products. Modern 2025 aesthetic, mobile-first, high contrast, accessible. Suggest Tailwind classes where possible.",
+      "mcp_servers": ["vision-mcp", "design-system-mcp"],
+      "depends_on": ["structure"],
+      "priority": 4,
+      "output_format": "COLOR PALETTE + TYPOGRAPHY + LAYOUT + ANIMATIONS + TAILWIND SUGGESTIONS"
+    },
+    {
+      "id": "codegen",
+      "name": "Codegen Agent",
+      "description": "Generates clean, modern landing page code (Next.js/Tailwind preferred)",
+      "system_prompt": "You are an expert frontend developer for fast, beautiful SaaS landing pages. Responsive, accessible, semantic HTML, Tailwind classes, no unnecessary libraries.",
+      "mcp_servers": ["context7-retrieval"],
+      "depends_on": ["design", "structure", "copywriter"],
+      "priority": 5,
+      "output_format": "Full code in ```tsx or ```html block"
+    },
+    {
+      "id": "seo",
+      "name": "SEO Agent",
+      "description": "Handles technical SEO, meta tags, schema.org, alt texts, keywords",
+      "system_prompt": "You are a technical SEO expert for SaaS landing pages. Title <60 chars, meta 150–160, full OG/Twitter cards, schema for software, descriptive alt texts.",
+      "mcp_servers": ["context7-retrieval"],
+      "depends_on": ["codegen"],
+      "priority": 6,
+      "output_format": "TITLE + META DESCRIPTION + OG + SCHEMA JSON-LD + ALT TEXTS"
+    },
+    {
+      "id": "browser",
+      "name": "Browser Agent",
+      "description": "Opens preview, takes screenshots, records interaction",
+      "system_prompt": "You are a browser automation specialist. Open localhost preview, take full-page screenshots, record 30s user flow, focus on above-the-fold and key CTAs.",
+      "mcp_servers": ["browser-control-mcp", "vision-mcp"],
+      "depends_on": ["codegen"],
+      "priority": 7,
+      "output_format": "Screenshots + Recording summary + Key observations"
+    },
+    {
+      "id": "reviewer",
+      "name": "Reviewer Agent",
+      "description": "Critiques conversion, design, copy quality, suggests fixes",
+      "system_prompt": "You are a ruthless landing page conversion optimizer. Be brutally honest, focus on friction points, emotional resonance, visual hierarchy, trust signals.",
+      "mcp_servers": ["vision-mcp", "context7-retrieval"],
+      "depends_on": ["browser", "codegen", "seo"],
+      "priority": 8,
+      "output_format": "OVERALL SCORE (1–10) + STRENGTHS + WEAKNESSES + SPECIFIC FIXES"
+    }
+  ],
+  "default_workflow": [
+    "strategist",
+    "copywriter",
+    "structure",
+    "design",
+    "codegen",
+    "seo",
+    "browser",
+    "reviewer"
+  ],
+  "global_settings": {
+    "max_parallel_agents": 4,
+    "auto_save_artifacts": true,
+    "notify_on_completion": true
+  }
+}
