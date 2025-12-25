@@ -88,13 +88,15 @@ Use built-in git or git_agent → commit → PR → merge → manual deploy to V
 - Vision / screenshot analysis
 - Optional: Tailwind Design MCP, screenshot-to-code
 
-## Pro Tips for Antigravity (Dec 2025)
+### Pro Tips for Antigravity (Dec 2025)
 
-• Start small: generate only hero section first
-• Use Artifacts heavily — screenshots & recordings are gold
-• Keep browser control permissions minimal (security)
-• Save good agent configurations as templates in .antigravity/agents.json
-• For production deploys: use git + Vercel/Netlify webhook after merge
+- **Start small** — Generate only the hero section first to test the full pipeline quickly
+- **Use Artifacts heavily** — Screenshots, browser recordings, and plans are gold for reviewing landing page quality
+- **Keep browser control minimal** — Limit permissions to only necessary domains (strong security practice)
+- **Save good agent configs** — Export and store successful agent profiles as templates in `.antigravity/agents.json`
+- **Automate production deploys** — After merge, use git + Vercel/Netlify webhook for instant preview links
+- **Review in Artifacts tab** — Always check visual output (screenshots/recordings) before approving code
+- **Iterate fast** — Dispatch Reviewer agent after each major section to catch issues early
 
 ## License
 
